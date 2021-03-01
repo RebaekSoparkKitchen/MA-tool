@@ -111,7 +111,7 @@ class Request:
     def display(self):
         request_vars = vars(self)
         info = ''
-        pk_id = MA().query("SELECT max(id) FROM Request")[0][0]
+        pk_id = MA().query("SELECT max(id) FROM Request")[0][0] + 1
         info += f'[#E4007F]ID:[/#E4007F] [#00FFFF]{pk_id}[/#00FFFF] \n'
         for item in request_vars:
             if item in ['_request_id', '_owner_first_name', '_owner_last_name', '_mu', '_creation_time',
