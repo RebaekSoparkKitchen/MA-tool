@@ -27,7 +27,7 @@ class CalendarExcel(object):
 
     @staticmethod
     def set_header(ws):
-        headers = ['Launch Date', 'Weekday', 'Campaign Name', 'Wave', 'Event Date', 'Owner', 'Campaign ID']
+        headers = ['Launch Date', 'Weekday', 'Campaign Name', 'Wave', 'Event Date', 'Owner', 'Campaign ID', 'Comments']
         ws.append(headers)
 
     @staticmethod
@@ -39,6 +39,7 @@ class CalendarExcel(object):
         ws.column_dimensions['E'].width = 12
         ws.column_dimensions['F'].width = 25
         ws.column_dimensions['G'].width = 15
+        ws.column_dimensions['H'].width = 35
 
     @staticmethod
     def set_font(ws):

@@ -6,14 +6,14 @@ from src.Connector.MA import MA
 class SimpleTracker:
     def __init__(self, days_diff=21, cols=None):
         if cols is None:
-            cols = ['blast_date', 'campaign_name', 'event_date', 'owner_full_name', 'smc_campaign_id']
+            cols = ['blast_date', 'campaign_name', 'event_date', 'owner_full_name', 'smc_campaign_id', 'comments']
         self.days_diff = days_diff
         self.start_date = dt.datetime.now().date() + dt.timedelta(-int(days_diff))
         self.cols = cols
 
     def exist_data(self):
         sql = f"SELECT blast_date, campaign_name, wave, event_date, owner_full_name, " \
-              f"smc_campaign_id " \
+              f"smc_campaign_id, comments " \
               f"from Request WHERE " \
               f"DATE(blast_date) > DATE('now', '-{self.days_diff} day', 'localtime') " \
               f"ORDER BY blast_date;"
