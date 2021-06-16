@@ -2,7 +2,7 @@ from src.Models.TableData import data_producer
 
 
 def future_work():
-    cols = ['blast_date', 'campaign_name', 'wave', 'owner_full_name', 'event_date', 'comments']
+    cols = ['id', 'blast_date', 'campaign_name', 'wave', 'owner_full_name', 'event_date', 'comments']
     sql = f"SELECT {','.join(cols)} FROM Request " \
           "WHERE DATE(blast_date) > DATE('now', 'localtime') " \
           "ORDER BY DATE(blast_date)"
