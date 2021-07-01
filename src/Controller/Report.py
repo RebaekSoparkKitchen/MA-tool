@@ -48,7 +48,12 @@ class Report(object):
         click_data_list = c.data()
         c.driver.close()
         basic_data_dic = self.change_basic_key(basic_data_dic)
-        click_data_list = list(map(self.change_click_key, click_data_list))
+        # there's a bug in SMC : I can not get click data
+        try:
+            click_data_list = list(map(self.change_click_key, click_data_list))
+        except KeyError:
+            print('SMC click data cannot get, please check columns definition.')
+            click_data_list = []
         return basic_data_dic, click_data_list
 
     @staticmethod
